@@ -1,0 +1,12 @@
+.dietform {
+    box-sizing: border-box;
+    background-color: rgb(32, 34, 34);
+    padding: 20px;
+    color: white;
+    width: 40%;
+    margin: auto;
+}
+
+.formlabel {
+    bottom: 100px; 
+}

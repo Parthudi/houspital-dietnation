@@ -1,0 +1,17 @@
+.profile {
+    margin: 7% 10%;
+     display: flex; 
+}
+
+.img {   
+   height: 190px;
+   margin-left: 30%;
+   margin-top: -319px;
+}
+
+.text {
+    margin-top: 20px;
+    margin-bottom: 5%;
+    margin-left: -679px;
+    font-size: large;
+} 

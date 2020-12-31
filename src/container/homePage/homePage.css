@@ -1,0 +1,32 @@
+.homepage {
+    margin:7% auto;
+    box-sizing: border-box;
+    box-shadow:rosybrown;
+    display: block;
+    background-color: transparent;
+    border-radius: 10px;
+    animation: transform 1s ease-in
+}
+
+.logo img {
+    height: 400px;
+}
+
+@keyframes transform {
+    0% {
+            transform: translateY(-200%)
+        }
+
+    40% {
+            transform: translateY(30%)
+        }
+    60% {
+            transform: translateY(10%)
+        }
+    80% {
+            transform: translateY(20%)
+        }
+    100% {
+        transform: translateY(0);
+    }
+}
