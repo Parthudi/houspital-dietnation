@@ -1,5 +1,5 @@
 import React,{Fragment} from 'react'
-import {Link, Route, withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {SignOut,isAuthenticated} from '../../container/serverApi/authApi'
 import ShowImage from '../../container/user/ShowProfilepic'
 
@@ -61,7 +61,7 @@ const Menu = (props) => {
 
                 {isAuthenticated() ?
                 (<li className="nav-item dropdown">
-                <a className="nav-link  dropdown-toggle" data-toggle="dropdown" style={{cursor:"pointer"}}>  More items  </a>
+                <Link className="nav-link  dropdown-toggle" data-toggle="dropdown" style={{cursor:"pointer", color:"lightblue"}}>  More items  </Link>
                  <ul className="dropdown-menu">
                      <li><Link className="dropdown-item" to='/dashboard'> Edit Profile </Link></li>
                      <li><Link className="dropdown-item" to='/dietform'> know your Health </Link></li>

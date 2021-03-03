@@ -34,7 +34,7 @@ const SignUpUser = (props) => {
 
             useEffect(() => {
                 return(setValues({...values, formData : new FormData() }) );
-            }, []);
+            }, [values]);
 
     const handleonSubmit = async event  => {
         event.preventDefault()

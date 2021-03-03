@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {withRouter, Route} from 'react-router-dom'
 import Button from '../../component/UI/button/button'
 import Signin from '../user/signin/signin'
-import classes from './homePage.css'
+import './homePage.css'
 import LOGO from '../../assets/images/houspitallogo.png'
 
 
@@ -20,8 +20,8 @@ class HomePage extends Component {
     return(
         <React.Fragment>
 
-        <div className={classes.homepage}>
-            <div className={classes.logo}>
+        <div className="homepage">
+            <div className="logo">
                 <img src={LOGO} alt='Logo'  /> 
             </div>
             

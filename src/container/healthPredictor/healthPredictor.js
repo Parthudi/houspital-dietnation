@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import classes from './healthPredictor.css'
+import './healthPredictor.css'
 import prediction from "../../assets/images/healthpredictionsposter.png" 
 
 class Healthpredictor extends Component {
@@ -12,13 +12,13 @@ class Healthpredictor extends Component {
 
         return(
             <div>
-                <div className={classes.menu}>       
-                        <div className={classes.background}  style={{backgroundImage:`url(${prediction})`}} />
+                <div className="menu">       
+                        <div className="background"  style={{backgroundImage:`url(${prediction})`}} />
                 </div>
-                <div className={classes.content}>
-                    <span className={classes.title}> HEALTH PREDICTOR </span> <br></br>
+                <div className="content">
+                    <span className="title"> HEALTH PREDICTOR </span> <br></br>
                     <h5> Here you can predict your Problems/Diseases  </h5>
-                    <button style={{margin: "auto"}} className={classes.third}> Health </button>   
+                    <button style={{margin: "auto"}} className="third"> Health </button>   
                 </div> 
             </div>
             )

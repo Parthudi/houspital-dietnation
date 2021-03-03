@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import FormInput from '../../../component/UI/formInput/formInput'
 import Button from '../../../component/UI/button/button'
-// import diet from '../../../assets/images/diet.png'
-import classes from './dietform.css'
+import './dietform.css'
 import Spinner from '../../../component/UI/Spinner/Spinner'
 import ShowDietImage from '../dietForm/showDietPic'
 import {isAuthenticated} from "../../serverApi/authApi"
@@ -128,14 +127,15 @@ class Dietform extends Component {
             <div>
                 {this.showLoading()}
                {!this.state.background   ? 
-                 <div className={classes.main} style={{textAlign:"center", backgroundColor:"brown"}}>
+               
+                 <div className="main" style={{textAlign:"center", backgroundColor:"brown"}}>
                      <ShowDietImage  user={user} estyle={{height:"400px", width:"1150px"}} />  
-                        <div className={classes.dietplan}>  
+                        <div className="dietplan">  
                             {this.showResult()}
                         </div>
                   </div>
                   : (
-                    <div className={classes.dietform}> 
+                    <div className="dietform"> 
                         {this.state.clicked ? this.showResult() : this.formData()}            
                      </div>              
                 )}    
