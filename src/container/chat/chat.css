@@ -1,76 +1,56 @@
-.chat {
-    box-sizing: border-box;
-    border: 0px solid burlywood;
-    padding: 18px;
-    margin: -30% 55%;
-    background-color: burlywood;
-    display: flex;
-    width: 40%;
-    border-radius: 30px;
-    flex-direction: column; 
-    animation: transform 1s ease-in forwards;  
-    animation-delay: 0.7s;
-     
-}
-
 .title {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: bold;
-    font-size: x-large;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: bold;
+  font-size: x-large;
+  color:cornflowerblue;
+} 
+.content {
+  margin-left: 70px;
 }
 
-.ribbon {
-    font-size: 16px;
-    width: 12%;
-    position: relative;
-    background: #ba89b6;
-    color: #fff;
-    text-align: center;
-    padding: 1em 2em;        /* Adjust to suit */
-    margin: -8% 69%;
-  }
-  
-  .ribbon:hover {
-    transform: scale(0.988);
-    cursor: pointer;
-    }
+.menu {
+  border-radius: 3px;
+  width: 400px;
+  height: 350px;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid cornflowerblue;
+  margin: 90px 5px 5px 70px;
+  overflow: hidden;
+}
 
-  .ribbon:before, .ribbon:after {
-    content: "";
-    position: absolute;
-    display: block;
-    bottom: -1em;
-    border: 1.5em solid #986794;
-    z-index: -1;
-   }
-   .ribbon:before {
-    left: -2em;
-    border-right-width: 1.5em;
-    border-left-color: transparent;
-   }
-   .ribbon:after {
-    right: -2em;
-    border-left-width: 1.5em;
-    border-right-color: transparent;
-   }
-   .ribbon .ribboncontent:before, .ribbon .ribboncontent:after {
-    content: "";
-    position: absolute;
-    display: block;
-    border-style: solid;
-    border-color: #804f7c transparent transparent transparent;
-    bottom: -1em;
-   }
-   .ribbon .ribboncontent:before {
-    left: 0;
-    border-width: 1em 0 0 1em;
-   }
-   .ribbon .ribboncontent:after {
-    right: 0;
-    border-width: 1em 1em 0 0;
-   }
+.menu:hover {
+  cursor: pointer;
+}
 
-@keyframes transform {
+.menu:hover .background {
+  background-size: cover;
+  transform: scale(1.1);
+  transition: transform 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.image {
+  height: 240px;
+  display: flex;
+  align-items: center;
+}
+.background {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.menu:first-child {
+  margin-right: 7.5px;
+}
+
+.menu:last-child {
+  margin-left: 7.5px;
+}
+
+/* @keyframes transform {
     0% {          
             transform: translateY(-30%)
       }
@@ -82,4 +62,21 @@
             margin: 7.5% 55%;
             transform: translateY(0);
     }
+} */
+
+.third {
+  border-radius: 10px;
+  margin-left: 980px;
+  margin-bottom: 250px;
+  padding: 5px;
+  width: 90px;
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+.third:hover {
+  color: black;
+  box-shadow: 0 0 10px 0 #a83db6 inset, 0 0 10px 4px #a14433;
 }

@@ -6,7 +6,7 @@ const FormInput = (props) => {
    // console.log('length: ' +props.value.length)
 
    const formlabel = (
-         props.lableType ? classes.lableType : classes.forminputlabel
+         props.labletype ? classes.labletype : classes.forminputlabel
        
    )
     return(                     

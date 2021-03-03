@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classes from './Modal.css'
-import Auxiliary from '../../../hoc/Auxiliary'
 import Backdrop from '../Backdrop/Backdrop'
+import { Fragment } from 'react'
 
 class Modal extends Component {
     shouldComponentUpdate(nextProps, nextState) {
@@ -10,7 +10,7 @@ class Modal extends Component {
 
     render() {
         return(
-            <Auxiliary>
+            <Fragment>
             <Backdrop show={this.props.showback} clicked={this.props.modalClosed}/>
                 <div className={classes.Modal} 
                     style={{
@@ -19,10 +19,7 @@ class Modal extends Component {
                        }}>
                         {this.props.children}
                 </div>
-
-
-        </Auxiliary>
-
+        </Fragment>
         )
     }
 }  

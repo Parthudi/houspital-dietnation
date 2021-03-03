@@ -11,49 +11,59 @@
     }
 
 .Button:hover {
+    outline: none;
     transform: scale(0.94);
     }
 
 .Button:first-of-type {
+    outline: none;
     margin-left: 0;
     padding-left: 0;
     }
 
 .Success {
+    outline: none;
     color: #395f04;
     font-size: large;
     }
 
 .Danger {
+    outline: none;
     font-size: large;
     color: #803c18;
     }
     
 .formSuccess {
+    outline: none;
     padding: 18px;
     color: rgb(233, 68, 95)
     }
 
 .formSuccessHomepage {
+    outline: none;
         font-size: x-large;
         padding: 20px;
         color : green
     }
 .formDangerHomepage {
+    outline: none;
         font-size:x-large;
         padding: 20px;
         color :  rgb(116, 26, 26);
     }
 .Button:disabled {
+    outline: none;
     color: rgb(90, 89, 89);
     cursor: not-allowed;
     }
 
 .formSuccess:not(:disabled) {
+    outline: none;
     animation: enable 0.5s linear;
     }
 
 .dietSuccess {
+    outline: none;
         color: yellowgreen;
         font-size: larger;
     }

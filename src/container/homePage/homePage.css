@@ -5,6 +5,7 @@
     display: block;
     background-color: transparent;
     border-radius: 10px;
+    text-align: center;
     animation: transform 1s ease-in
 }
 

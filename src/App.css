@@ -1,14 +1,5 @@
 body {
   font-family: 'Open Sans Condensed';
-  padding: 20px 60px;
-  text-align: center;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-}
 
-* {
-  box-sizing: border-box;
-}

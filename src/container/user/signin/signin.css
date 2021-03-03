@@ -1,12 +1,10 @@
 .signinform {
-    background-color: pink;
-    width: 40%;
-    align-content: center;
-    border: 1px solid #ccc;
-    box-shadow: 3px 8px 3px rgb(226, 126, 185);
+    text-align: center;
+    width: 65%;
+    border: 5px 15px 10px solid #ccc;
+    box-shadow: 3px 8px 3px rgb(97, 64, 81);
     padding: 20px;
     margin:15px auto;
-    justify-content: center;
     box-sizing: border-box;
     border-radius: 6px;
     display: flex;
@@ -18,7 +16,6 @@
 .signinform:hover {
         transform: scale(0.989)
 }
-
 
 .label {
     font-weight: bold;

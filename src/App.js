@@ -1,30 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import classes from './App.css';
 import {Route, Switch} from 'react-router-dom'     
-import Signup from './container/signup/signup'
-import Signin from './container/signin/signin'
+import Signup from './container/user/signup/signup'
+import Signin from './container/user/signin/signin'
 import Homepage from './container/homePage/homePage'
-import Application from './component/application/application'
-import Dietform from './container/dietPlan/dietForm/dietform'
-import Profile from './component/profilepic/profile'
+import Layout from './component/layout/layout'
+import AdminRoute from './container/serverApi/AdminRoute'
+import Spinner from './component/UI/Spinner/Spinner'
+import AdminDashboard from './container/Profile/adminUser/adminHome'
+// import NearBy from './container/NearBy' 
+
+const Application =   React.lazy(() => import('./component/application/application'))
+const Dietform =      React.lazy(() => import('./container/dietPlan/dietForm/dietform'))
+const UserDashboard = React.lazy(() => import('./container/Profile/userProfile/userHome'))
 
 class App extends Component {
   render() {
-        
+    let routes = (
+      <Switch>
+              <Route path='/signup'   component={Signup}/> 
+              <Route path='/signin'   component={Signin}/> 
+              {/* <Route path='/nearby/hospital'  component={NearBy} />      */}
+              <Route path='/user/app' exact  render={() => (
+                 <Suspense fallback= {<Spinner />}>
+                    <Application /> 
+                 </Suspense> )} />
+             
+              <Route path='/dietform' exact render={() => (
+                 <Suspense fallback= {<Spinner />}>
+                    <Dietform /> 
+                 </Suspense> )} /> 
+
+              <Route path='/dashboard' exact render={() => (
+                 <Suspense fallback= {<Spinner />}>
+                    <UserDashboard /> 
+                 </Suspense> )} />
+
+              <AdminRoute   path='/admin/dashboard' exact component={AdminDashboard} />
+
+              <Route path='/'  component={Homepage}/>
+              
+        </Switch>
+      )
+      // <Route path='/shop' exact  render={() => (
+      //   <Suspense fallback= {<h1> Loading.... </h1>}>
+      //       <ShopPage /> 
+      //   </Suspense>
+      //   )} />
+
+      // <Route path='/login' exact render={() => (
+      //   <Suspense fallback= { <h1> Loading.... </h1>}>
+      //       <SignInAndSignUp /> 
+      //   </Suspense>
+      //   )} />  
     return (
       <React.Fragment>
-        <div className={classes.App}>
-            <Switch>
-
-              <Route path='/Signup'  component={Signup}/> 
-              <Route path='/Signin'  component={Signin}/> 
-              <Route path='/App' component={Application} />
-              <Route path='/Dietform' component={Dietform} />
-              <Route path='/Profile' component={Profile} />
-              <Route path='/'  component={Homepage}/>
-
-            </Switch>
-        </div>
+        <Layout className={classes.App}>
+                {routes}
+        </Layout>
       </React.Fragment>
     );
   }

@@ -1,13 +1,15 @@
 import React from 'react'
-import Homepage from '../../container/homePage/homePage'
-import Navigations from '../navigation/navigation'
+import Header from '../../component/header/header'
+import classes from './layout.css'
 
 const Layout = (props) => {
         
     return(
-            <div>          
-                <Navigations />    
-                        <Homepage />
+            <div >           
+                            <Header />
+                            <main className={classes.content}>
+                                {props.children}
+                            </main>
             </div>
     )
 }

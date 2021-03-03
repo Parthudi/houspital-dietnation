@@ -1,24 +1,28 @@
 import React,{Component} from 'react'
 import classes from './healthPredictor.css'
+// import prediction from "../../assets/images/healthpredictionsposter.png" 
 
 class Healthpredictor extends Component {
+
     handleOnClick = () => {
         this.props.history.push('./App/Healthpredictor')
         }
-    render() {
-        return(
-            <React.Fragment >
-                <div className={classes.predictor}>
-                   <span className={classes.title}> HEALTH PREDICTOR </span> <br></br>
-                   <span> Here you can predict your Problems/Diseases  </span>
-                </div>
-                <h1 className={classes.ribbon}>
-                       <strong onClick={this.handleOnClick} className={classes.ribboncontent}>Click Me</strong>
-                </h1>
-            </React.Fragment>
-   
-       )
-    }
-}
 
+    render() {
+
+        return(
+            <div>
+                {/* <div className={classes.menu}>       
+                        <div className={classes.background}  style={{backgroundImage:`url(${prediction})`}} />
+                </div> */}
+                <div className={classes.content}>
+                    <span className={classes.title}> HEALTH PREDICTOR </span> <br></br>
+                    <h5> Here you can predict your Problems/Diseases  </h5>
+                    <button style={{margin: "auto"}} className={classes.third}> Health </button>   
+                </div> 
+            </div>
+            )
+      }
+   
+}
 export default Healthpredictor
