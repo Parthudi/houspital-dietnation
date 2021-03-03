@@ -1,0 +1,35 @@
+.signinform {
+    text-align: center;
+    width: 65%;
+    border: 5px 15px 10px solid #ccc;
+    box-shadow: 3px 8px 3px rgb(97, 64, 81);
+    padding: 20px;
+    margin:15px auto;
+    box-sizing: border-box;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.signinform:hover {
+        transform: scale(0.989)
+}
+
+.label {
+    font-weight: bold;
+    display: block;   
+}
+
+.Button {
+    background-color: transparent;
+    border: none;
+    color: rgb(31, 172, 19);
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 18px;
+    margin: 10px;
+    font-weight: bold;
+}

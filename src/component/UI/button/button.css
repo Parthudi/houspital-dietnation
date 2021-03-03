@@ -1,0 +1,71 @@
+.Button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 18px;
+    margin: 10px;
+    font-weight: bold;
+    }
+
+.Button:hover {
+    transform: scale(0.94);
+    }
+
+.Button:first-of-type {
+    margin-left: 0;
+    padding-left: 0;
+    }
+
+.Success {
+    color: #395f04;
+    font-size: large;
+    }
+
+.Danger {
+    font-size: large;
+    color: #803c18;
+    }
+    
+.formSuccess {
+    padding: 18px;
+    color: rgb(233, 68, 95)
+    }
+
+.formSuccessHomepage {
+        font-size: x-large;
+        padding: 20px;
+        color : green
+    }
+.formDangerHomepage {
+        font-size:x-large;
+        padding: 20px;
+        color :  rgb(116, 26, 26);
+    }
+.Button:disabled {
+    color: rgb(90, 89, 89);
+    cursor: not-allowed;
+    }
+
+.formSuccess:not(:disabled) {
+    animation: enable 0.5s linear;
+    }
+
+.dietSuccess {
+        color: yellowgreen;
+        font-size: larger;
+    }
+
+@keyframes enable {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

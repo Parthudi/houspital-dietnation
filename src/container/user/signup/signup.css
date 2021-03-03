@@ -1,0 +1,38 @@
+/* .doctor img {
+    margin-left: -100px;
+    height: 680%;
+    position: relative;
+} */
+
+.signup {
+    margin: 50px auto;
+    align-content: center;
+    width: 75%;
+    display: flex;
+    border: 12px 5px 1px solid #ccc;
+    flex-direction: column;
+    padding: 30px 20px;
+    box-shadow: 5px 10px 5px rgb(97, 64, 81);
+    font-family: 'Open Sans Condensed', sans-serif;
+    overflow: hidden;
+    text-align: center;
+}
+
+.dropinput {
+    background: none;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.849);
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid grey;
+    margin: 25px 0;
+   }
+
+   .dropinput:focus {
+      outline: none;
+    }
+  

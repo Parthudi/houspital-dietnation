@@ -1,0 +1,85 @@
+.Toolbar {
+    width: 100%;
+    height: 66px;
+    background-color: #2f3366;
+    color : white;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 25px  ;
+    top: 0;
+    left:0;
+    box-sizing: border-box;
+    z-index: 90;
+}
+
+.showright {
+    margin-right: 5px;
+    word-spacing: -4px;
+}
+
+.Toolbar nav {
+    height: 100%;
+}
+
+.Logo {
+    justify-self: left;
+    height: 80%;
+    width: 5%;
+}
+
+.title {
+    color: rgb(163, 110, 50);
+    }
+
+ .example1 {
+        width: 58%;
+        z-index: -1;
+    }  
+      .example1 h3 {   
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          line-height: 45px;
+          text-align: center;
+      
+          /* Starting position */
+             -moz-transform:translateX(100%);
+             -webkit-transform:translateX(100%);	
+             transform:translateX(100%);
+      
+       /* Apply animation to this element */	
+             -moz-animation: example1 15s linear infinite;
+             -webkit-animation: example1 15s linear infinite;
+             animation: example1 15s linear infinite;
+      }
+      
+      /* Move it (define the animation) */
+            @-moz-keyframes example1 {
+             0%   { -moz-transform: translateX(100%); }
+             100% { -moz-transform: translateX(-100%); }
+            }
+            @-webkit-keyframes example1 {
+             0%   { -webkit-transform: translateX(100%); }
+             100% { -webkit-transform: translateX(-100%); }
+            }
+            @keyframes example1 {
+             0%   { 
+             -moz-transform: translateX(100%); /* Firefox bug fix */
+             -webkit-transform: translateX(100%); /* Firefox bug fix */
+             transform: translateX(100%); 		
+             }
+             100% { 
+             -moz-transform: translateX(-100%); /* Firefox bug fix */
+             -webkit-transform: translateX(-100%); /* Firefox bug fix */
+             transform: translateX(-100%); 
+             }
+            }
+          
+
+@media (max-width: 490px) {
+    .DesktopOnly {
+        display: none;
+    }
+}

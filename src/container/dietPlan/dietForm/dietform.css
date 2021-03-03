@@ -1,0 +1,86 @@
+.dietform {
+    box-sizing: border-box;
+    background-color: rgb(77, 40, 138);
+    padding: 70px;
+    color: white;
+    margin-top: 2%;
+    margin-left: 35%;
+    border-radius: 5px;
+    display: inline-flex;
+    align-content: center;
+}
+
+.dietplan{
+    text-align: center;
+    /* font-family: "sans-serif"; */
+    padding: 50px;
+    margin: auto;
+    display: inline-flex;
+    color: #fff;
+}
+
+.main{
+    background: linear-gradient(-45deg, #e0866a, #eb72a1, #d3d14f, #30c7a4);
+    background-size: 400% 400%;
+    -webkit-animation: parth 15s ease infinite;
+    -moz-animation: parth 15s ease infinite;
+    animation: parth 15s ease infinite;
+}
+/* .jumbotron {
+    width: 30wh;
+    height: 30vh;
+    color: #fff;
+    background: linear-gradient(-45deg, #e0866a, #eb72a1, #d3d14f, #30c7a4);
+    background-size: 400% 400%;
+    -webkit-animation: parth 15s ease infinite;
+    -moz-animation: parth 15s ease infinite;
+    animation: parth 15s ease infinite;
+} */
+
+@-webkit-keyframes parth {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@-moz-keyframes parth {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes parth {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.formlabel {
+    bottom: 100px; 
+}
+
+.dietform img {
+    margin-left: 850px;
+    margin-top: -110px;
+    width: 30vw;
+    height: 250px;
+}
