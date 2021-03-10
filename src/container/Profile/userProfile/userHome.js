@@ -3,25 +3,19 @@ import ProfileLayout from '../profileLayout/profileLayout'
 import {Deleteaccount} from '../../serverApi/authApi'
 import {Link, withRouter} from 'react-router-dom'
 import ShowImage from "../../user/ShowProfilepic"
-import {isAuthenticated} from "../../../container/serverApi/authApi"
+import {isAuthenticated,SignOut} from "../../../container/serverApi/authApi"
+import Spinner from '../../../component/UI/Spinner/Spinner'
 
 const UserDashboard = (props) => {
 
     let {user, token} = isAuthenticated()
-    // console.log("user:::::---------------------- ",myuser.user, typeof myuser.user);
 
-    // let authenticatejwt = JSON.parse(localStorage.getItem('JWT'))
-    // console.log("JSON.parse(localStorage.getItem('JWT')"+ JSON.parse(localStorage.getItem('JWT')));
-    // setauthValues( {authenticatejwt} )
-   
-
-    // const [authenticate, setauthValues] = useState({})
     const [values, setValues] = useState({
-                userName: `${user.userName}`,
-                email: `${user.email}`,
-                phoneNumber: `${user.phoneNumber}`,
-                gender: `${user.gender}`,
-                city: `${user.city}`,
+                userName: `${user.userName}`|| '',
+                email: `${user.email}`|| '',
+                phoneNumber: `${user.phoneNumber}`|| '',
+                gender: `${user.gender}`|| '',
+                city: `${user.city}`|| '',
                 loading: false,
                 error: "",
                 success: false,
@@ -42,11 +36,8 @@ const {
             formData,
                     } = values ;
 
-                    // console.log(JSON.stringify(authenticate))
+                 
         useEffect(() => {
-            // let authenticate = JSON.parse(localStorage.getItem('JWT'))
-            // setauthValues({ authenticate })
-            // console.log("inside useEffect" +authenticate)
             return(setValues({ formData : new FormData(), dis: "not-allowed" }) );
           }, []);
           
@@ -79,26 +70,9 @@ const {
                 }).then(response =>  response.json())
 
                 console.log("response:-------", ResponseData);
-                await localStorage.setItem('JWT', JSON.stringify(ResponseData));
-                window.location.reload();
-                setValues({...values, success:true, loading: false })
-                // await authenticate(ResponseData, async () => {
-                //     setValues({...values, loading:false})
-                //    return auth.user && auth.user.role === "admin" ? <Redirect to="/admin/dashboard" /> : props.history.replace("/User/App")
-                //  })
-                
-
-                // setValues({ userName: `${user.userName}`,
-                //                     email: `${user.email}`,
-                //                     phoneNumber: `${user.phoneNumber}`,
-                //                     gender: `${user.gender}`,
-                //                     city: `${user.city}`})
-               
-                // props.history.push("/")
-                console.log("response after:-------", ResponseData);
-                setValues({...values,loading: false, error: "", success: true, auth: true})  
-                
-            } catch(error) {               
+                setValues({...values,loading: false, error: "", success: true}) 
+                SignOut(user._id, token).then(data =>  props.history.push('/signin') )
+                } catch(error) {               
                 setValues({ ...values, error: error, success:false, loading: false})
               }  
         } 
@@ -169,7 +143,8 @@ const {
                  <div className="alert alert-info" style={{display: success ? "" : 'none', fontSize:"30px"}}> User Data Updated !!  </div>
                 )
             const showLoading = () =>  (
-                loading && (<div className="spinner-border text-info" style={{textAlign:"center"}}> <h2> Loading... </h2>  </div>)  )
+                loading ? <Spinner /> : null  
+                )
         
         return(
             <ProfileLayout title=" Dashboard" description={`Hellow ${user.userName}, have a good day !!`} className="container-fluid"> 

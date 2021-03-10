@@ -26,8 +26,9 @@ class HomePage extends Component {
             </div>
             
             <h2><b> Are You A User Of Our Application ? </b></h2> <br></br>
-            <Button btnType={'formSuccessHomepage'} clicked={this.clickedSignin}> SignIn </Button>
-            <Button btnType={'formDangerHomepage'} clicked={this.clickedSignup}> SignUp </Button>
+            <Button btnType={'formSuccessHomepage'} clicked={this.clickedSignin}><h4> SignIn </h4></Button>
+           
+            <Button btnType={'formDangerHomepage'} clicked={this.clickedSignup}><h4> SignUp </h4></Button> 
             <Route path='/Signin' Component={Signin}/>
         </div>
         </React.Fragment>

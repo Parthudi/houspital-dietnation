@@ -61,7 +61,7 @@ const Menu = (props) => {
 
                 {isAuthenticated() ?
                 (<li className="nav-item dropdown">
-                <Link className="nav-link  dropdown-toggle" data-toggle="dropdown" style={{cursor:"pointer", color:"lightblue"}}>  More items  </Link>
+                <span className="nav-link  dropdown-toggle" data-toggle="dropdown" style={{cursor:"pointer", color:"lightblue"}}>  More items  </span>
                  <ul className="dropdown-menu">
                      <li><Link className="dropdown-item" to='/dashboard'> Edit Profile </Link></li>
                      <li><Link className="dropdown-item" to='/dietform'> know your Health </Link></li>

@@ -13,7 +13,6 @@ export const isAuthenticated = () => {
      if(localStorage.getItem("JWT")) {
          return JSON.parse(localStorage.getItem('JWT'))
          } else{
-             console.log("failed");
              return false
          }
     } 

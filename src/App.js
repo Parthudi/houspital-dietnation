@@ -4,6 +4,7 @@ import {Route, Switch} from 'react-router-dom'
 import Signup from './container/user/signup/signup'
 import Signin from './container/user/signin/signin'
 import Homepage from './container/homePage/homePage'
+import CreateDiet from './container/Profile/adminRoutes/createDiet'
 import Layout from './component/layout/layout'
 import AdminRoute from './container/serverApi/AdminRoute'
 import Spinner from './component/UI/Spinner/Spinner'
@@ -36,6 +37,7 @@ class App extends Component {
                  </Suspense> )} />
 
               <AdminRoute   path='/admin/dashboard' exact component={AdminDashboard} />
+              <AdminRoute   path='/create/diet' exact component={CreateDiet} />
 
               <Route path='/'  component={Homepage}/>
               

@@ -12,10 +12,10 @@ const {user , token} = isAuthenticated()
 class Dietform extends Component {
       
     state = {
-        error: false,
+        error: '',
         loading: false,
-        Age: '',
-        Height: '',
+        Age: '21',
+        Height: '1.9',
         Weight: '',
         Message: '',
         BMI: '',
@@ -29,7 +29,7 @@ class Dietform extends Component {
         eveningsnacks: "",
         dinner: "",
         beforebed: "", 
-        showOrder: false, 
+        perfect: false
     }
 
     handleSubmitHandler = async event => {
@@ -38,7 +38,8 @@ class Dietform extends Component {
                 const Weight = event.target.Weight.value
                 const BMI = await (Weight / (Height*Height))
                 const fixedBMI = Math.round(BMI)
-                this.setState({BMI : fixedBMI , clicked: true, loading: true})
+                this.setState({BMI : fixedBMI , loading: true,name: "",morning: "",breakfast: "",
+                midmeal: "", lunch: "", eveningsnacks: "", dinner: "", beforebed: "" })
 
             try{
                 await fetch(`http://localhost:4000/user/getbmi/${user._id}`, {
@@ -49,25 +50,25 @@ class Dietform extends Component {
                     },
                 body: JSON.stringify({BMI : this.state.BMI})
             })
-            // return responseData
         } catch(error) {               
-            console.log(error)
+            console.log({error: error})
           }  
 
         if( 18.4 < BMI && BMI < 25 ) {
             console.log("entering into congraluations")
-            this.setState({ Message : 'Congraluations You Are Just Awesomely Fit & Just Keep doing what you are doing !!!!' }) 
+            this.setState({ Message : 'Congraluations You Are Just Awesomely Fit & Just Keep doing what you are doing !!!!' ,
+                            perfect: true, error:"", background: false, loading: false, ShowOrder:true }) 
 
          } else {
             apiDiet(user._id, token).then((data) => {
                 if(data.error) {
-                        this.setState({error: true})
+                        this.setState({error: data.error, loading: false})
                  }  else {
-                        // console.log("diet plan at form: " + JSON.stringify(data))
+                        console.log("diet plan at form: " + JSON.stringify(data))
                      const {name, morning, breakfast, midmeal, lunch, eveningsnacks, dinner, beforebed} = data[0]
                         
-                     this.setState({error:false,background: false, name ,morning, breakfast, midmeal, lunch,
-                                      eveningsnacks, dinner, beforebed, loading: false, ShowOrder:true  })
+                     this.setState({error:"",background: false, name ,morning, breakfast, midmeal, lunch,
+                                      eveningsnacks, dinner, beforebed, loading: false, ShowOrder:true })
                      }   })   
               }        
         }
@@ -88,26 +89,18 @@ class Dietform extends Component {
 
             <FormInput  type="number" name='Weight' labal='weight(kg)'  value={this.state.Weight}  onChange={this.OnHandleChange} labletype='true' required  /> 
         
-            <Button btnType={'dietSuccess'} clicked={this.showResult}> Get BMI </Button>
+         <center> <Button btnType={'dietSuccess'} clicked={this.showResult}> <h3> Get BMI </h3></Button> </center>
       
         </form> 
     </div>   )
       }
-      
-    showingorder = () => {
-        this.setState({showOrder : true}) 
-         }
-
-    closeShowOrder = () => {
-        this.setState({showOrder : false})
-      }
 
     showResult = () => {      
          const {name, morning, breakfast, midmeal, lunch, eveningsnacks, dinner, beforebed} = this.state
-            return (    
-                <div style={{fontFamily:"sans-serif"}}> 
-                    <h1 style={{color: "brown"}} > <ul><b> {name.toUpperCase()} </b></ul></h1>
-                    <h3 style={{color: "black"}}>  You need to Follow Below Diet  </h3> <br></br>
+            return (  
+                <div style={{fontFamily:"sans-serif", alignItems:"start"}}> 
+                  <center> <h1 style={{color: "brown"}} > <ul><b> {name.toUpperCase()} </b></ul></h1>
+                    <h3 style={{color: "black"}}>  You need to Follow Below Diet  </h3> <br/><br/><br/>  </center>
                     <h2 style={{color: "purple"}}> <strong style={{color:"grey", textTransform:"capitalize"}}>  <u>Morning</u> </strong>  </h2>  <h4> <ul> {morning} </ul></h4>
                     <h2 style={{color: "purple"}}> <strong style={{color:"grey"}}>  <u>Breakfast</u> </strong> </h2> <h4> <ul>  {breakfast} </ul> </h4>
                     <h2 style={{color: "purple"}}> <strong style={{color:"grey"}}>  <u>MidMeal</u> </strong>   </h2>  <h4><ul>  {midmeal}  </ul></h4>
@@ -119,21 +112,24 @@ class Dietform extends Component {
             )}
 
     showLoading = () =>  (
-         this.state.loading && ( <Spinner /> )
-        )
-
+         this.state.loading ?  <Spinner /> : null 
+         )
+        
     render() {          
         return(
             <div>
                 {this.showLoading()}
                {!this.state.background   ? 
-               
-                 <div className="main" style={{textAlign:"center", backgroundColor:"brown"}}>
-                     <ShowDietImage  user={user} estyle={{height:"400px", width:"1150px"}} />  
+
+                  (this.state.perfect ? 
+                     <h1>  <center style={{marginTop:"5%",color:"grey"}}>   {this.state.Message}  </center> </h1> :
+                 (<div> 
+                <center> <ShowDietImage  user={user} estyle={{height:"400px", width:"1510px",marginTop:"20px"}} /> </center>
                         <div className="dietplan">  
                             {this.showResult()}
                         </div>
-                  </div>
+                  </div>) )
+
                   : (
                     <div className="dietform"> 
                         {this.state.clicked ? this.showResult() : this.formData()}            

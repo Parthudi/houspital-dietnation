@@ -1,9 +1,10 @@
 import React, { useState} from 'react'
-import  classes from './signin.css'
+import './signin.css'
 import Button from '../../../component/UI/button/button'
 import { Redirect, withRouter,Link} from 'react-router-dom'
 import FormInput from '../../../component/UI/formInput/formInput'
 import {signinUser} from '../UserApi'
+import Spinner from '../../../component/UI/Spinner/Spinner'
 import {authenticate,isAuthenticated} from '../../serverApi/authApi'
 
 const SignIn = (props) => {
@@ -38,13 +39,13 @@ const SignIn = (props) => {
         }
 
     const signInHandler = () => {
-        return( <form className={classes.forum} onSubmit={handleonSubmit}>
+        return( <form className="forum" onSubmit={handleonSubmit}>
                     
             <FormInput  type="text"  name='email' labal='E-mail' value={email}  onChange={OnHandleChange("email")}  required  /> 
 
             <FormInput  type="password" name='password' labal='Password'  value={password}  onChange={OnHandleChange("password")}  required  /> 
                 
-            <Button btnType={'Success'} > SignIn </Button>  <br></br> 
+            <Button btnType={'Success'} ><h4> SignIn </h4></Button>  <br></br> 
         
             </form>
         )
@@ -53,12 +54,12 @@ const SignIn = (props) => {
         <div  style={{display: error ? "" : 'none' }}> {error} </div>
           )
     const showLoading = () =>  (
-        loading && (<div className="alert alert-info"> <h2> Loading... </h2>  </div>)  )
+        loading ? <Spinner /> : null    )  
             
         return(
-            <div className={classes.signinform} style={{marginTop: "100px"}}>
+            <div className="signinform" style={{marginTop: "100px"}}>
                     <h1> I already have an account </h1> 
-                    <span className={classes.statement}> Signin with your email & password </span> <br/><br/>
+                    <span className="statement"> Signin with your email & password </span> <br/><br/>
                     {showError()}
                     {showLoading()}
                     {signInHandler()}        

@@ -14,10 +14,6 @@ const AdminDashboard = (props) => {
                          <li className="list-group-item" style={{fontSize: "22px"}}>
                             <Link className="nav-link" to='/create/diet'> Create Diet </Link>     
                          </li>
-
-                         {/* <li className="list-group-item">
-                            <Link className="nav-link" to='/create/product'>  </Link>     
-                         </li> */}
                      </ul>
                 </div>
             )}
@@ -33,7 +29,7 @@ const AdminDashboard = (props) => {
                     <li className="list-group-item"> City: <b> {city} </b></li>
                     <li className="list-group-item"> Phone Number: <b> {phoneNumber} </b></li>
                     <li className="list-group-item"> Gender: <b> {gender} </b></li>
-                    <li className="list-group-item"> Password: <b> <input type="password" value={confirmPassword} style={{border: "1px 2px grey"}}/> </b></li>
+                    <li className="list-group-item"> Password: <b> <input type="password" defaultValue={confirmPassword} style={{border: "1px 2px grey"}}/> </b></li>
                 </ul>
                     <button className="btn btn-primary" onClick={() => props.history.push("/dashboard")}>
                         <Link to="/dashboard" style={{color:"yellow", fontSize:"20px"}}><strong> Edit </strong></Link>            

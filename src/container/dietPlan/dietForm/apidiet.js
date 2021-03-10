@@ -1,7 +1,5 @@
 
 export const apiDiet = async (userID, token) => {
-    console.log("entered into apiDiet")
-
         const response =  await fetch(`http://localhost:4000/user/getdiet/${userID}`, {
                  method: 'GET',
                  headers: {
@@ -9,7 +7,6 @@ export const apiDiet = async (userID, token) => {
                      "Authorization" : `Bearer ${token}`
                      },
              })
-            console.log(JSON.stringify(response))
             return await response.json();
      }
 
