@@ -5,24 +5,5 @@ mongoose.connect( process.env.MONGODB_URL,    {
     useCreateIndex: true,
     useUnifiedTopology: true,
     useFindAndModify: true,
-})
+}).then(() => console.log('Database connected'))
 
-// const User = mongoose.model('User', {
-//     name: {
-//         type: String
-//         },
-//     age: {
-//         type: Number
-//     }
-// })
-
-// const me = new User({
-//     name:'parth',
-//     age:21
-// })
-
-// me.save().then(() => {
-//     console.log(me)
-// }).catch((error) => {
-//     console.log(error)
-// })
