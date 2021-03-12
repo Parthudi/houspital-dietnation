@@ -12,6 +12,7 @@
   "dependencies": {
     "@sendgrid/mail": "^7.4.0",
     "@supercharge/strings": "^1.17.1",
+    "bad-words": "^3.0.4",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -29,6 +30,7 @@
     "nodemailer": "^6.4.17",
     "postman": "^0.2.0",
     "sharp": "^0.26.3",
+    "socket.io": "^4.0.0",
     "validator": "^13.1.17"
   },
   "devDependencies": {
